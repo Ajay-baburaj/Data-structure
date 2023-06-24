@@ -72,11 +72,30 @@ function deleteNode(key) {
     prev.next = temp.next;
 }
 
+function reverse(){ 
+    let prev = null
+    let currentNode = head
+    let next = null
+    while(currentNode != null){
+        next=currentNode.next
+        currentNode.next = prev
+        prev = currentNode
+        currentNode = next
+    }
+    head = prev
+}
+
 
 push(20)
+push(5)
+push(50)
+push(8)
+push(3)
+
 printList()
 deleteNode(10)
 console.log('after deleting')
-deleteNode(20)
+
+reverse()
 printList()
 
