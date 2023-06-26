@@ -34,6 +34,23 @@ function peek(){
     return array[top-1]
 }
 
+function mid(){
+    if (IsEmpty()) {
+        console.log('Stack is empty.')
+        return;
+    }
+
+    const mid = Math.floor((array.length-1)/2)
+    let stackSize = array.length
+
+    for(let i=0;i<mid;i++){
+        pop()
+    }
+
+    console.log("middle Element: ",peek())
+    array.length = stackSize
+}
+
 push(1)
 push(2)
 push(3)
@@ -43,3 +60,4 @@ console.log(IsEmpty())
 console.log(IsFull())
 console.log(peek())
 console.log(array);
+console.log(mid())
