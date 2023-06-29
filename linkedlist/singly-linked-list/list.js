@@ -120,6 +120,17 @@ function reverse(){
     head = prev
 }
 
+function findMid() {
+    let fastPointer = head
+    let slowPointer = head
+
+    while (fastPointer != null && fastPointer.next != null) {
+        slowPointer = slowPointer.next
+        fastPointer = fastPointer.next.next
+    }
+    console.log("middle: ",slowPointer.data)
+}
+
 
 push(10)
 push(20)
@@ -133,4 +144,5 @@ displayList()
 reverse()
 console.log('')
 displayList()
+findMid()
 
