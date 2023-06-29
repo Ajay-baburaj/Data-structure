@@ -107,18 +107,6 @@ function insertAfter(prev_data,data){
     temp.next = newNode
 }
 
-function reverse(){ 
-    let prev = null
-    let currentNode = head
-    let next = null
-    while(currentNode != null){
-        next=currentNode.next
-        currentNode.next = prev
-        prev = currentNode
-        currentNode = next
-    }
-    head = prev
-}
 
 
 push(10)
@@ -130,7 +118,3 @@ console.log("")
 insertAfter(30,40)
 deleteNode(40)
 displayList()
-reverse()
-console.log('')
-displayList()
-
