@@ -1,111 +1,45 @@
-let head = null
-let tail = null
+const array = [1,3,5,7]
 
-class Node{
-    constructor(data){
-        this.data = data
-        this.next = null
-        this.prev = null
+function binarySearch(array,key){
+    let left =0
+    let right = array.length-1
+
+    while (left <= right) {
+        let mid = Math.floor((left+right)/2)
+        if(array[mid] < key){
+            left = mid+1
+        }else if(array[mid]> key){
+            right = mid-1
+        }else{
+            return mid
+        }   
     }
 }
 
+console.log(binarySearch(array,3))
 
-function push(data){
-    let newNode = new Node(data)
-    let temp = head
 
-    if(head == null){
-        head = newNode
-        tail = newNode
-    }else{
-        newNode.prev = tail
-        tail.next = newNode
-        tail = newNode
-    }
-}
 
-function deleteNode(data){
-    let temp = head
-    let prev = null
 
-    if(temp == null){
-        console.log('list is empty')
-        return
-    }
 
-    if(temp != null && temp.data == data){
-        head = temp.next
-        head.prev = null
-        return
-    }
+// var x={},
+//   y={key:"y"},
+//   a={key:"z"},
+//   z={key:"z"};
+// x[y] = 11;
+// x[z] = 21;
+// x[a] = 43;
+// console.log(x[y]);
 
-    while(temp != null && temp.data !=data ){
-        prev = temp
-        temp = temp.next
-    }
+// var i = 1;
+// for (;i<4;){
+//     console.log(i)
+//   i = i + 1;
+// }
 
-    prev.next = temp.next
-    if(temp.next !== null){
-        temp.next.prev = prev
-    }
-}
+// var cars=2;
+// do{
+//   cars/=2;
+// }while(cars<1);
 
-function findMid(){
-    let prev = null
-    let slowPointer = head
-    let fastPointer = head
-
-    while(fastPointer != null && fastPointer.next != null){
-        fastPointer = fastPointer.next.next
-        prev = slowPointer
-        slowPointer = slowPointer.next
-    }
-    prev.next = slowPointer.next
-    console.log("mid is: ",slowPointer.data)
-}
-
-function insertAfter(prev_data,data){
-    let newNode = new Node(data)
-    let temp = head
-    let prev = null
-
-    if(temp == null){
-        console.log("list is empty")
-        return
-    }
-
-    while(temp != null && temp.data != prev_data){
-        prev = temp
-        temp = temp.next
-    }
-
-    if(temp == null){
-        console.log("data not found")
-        return
-    }
-
-    newNode.next = temp.next
-    temp.next = newNode
-    newNode.prev = temp
-    temp.next.prev = newNode
-
-}
-
-function display(){
-    let temp = head
-    while(temp !== null){
-        console.log(temp.data)
-        temp = temp.next
-    }
-}
-
-push(10)
-push(11)
-push(12)
-push(13)
-deleteNode(10)
-display()
-findMid()
-display()
-insertAfter(11,14)
-display()
+// console.log("Number of cars: " + cars);

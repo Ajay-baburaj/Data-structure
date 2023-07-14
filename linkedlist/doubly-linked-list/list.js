@@ -90,11 +90,13 @@ function ReversePrint(){
     }
 }
 
+
+
 push(2)
 push(10)
 push(8)
 push(25)
-deleteNode(2)
+// deleteNode(2)
 
 printList()
 // ReversePrint()

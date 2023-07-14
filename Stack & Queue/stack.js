@@ -1,4 +1,4 @@
-let max = 4
+let max = 5
 let array = []
 let top = array.length
 
@@ -51,13 +51,40 @@ function mid(){
     array.length = stackSize
 }
 
-push(1)
-push(2)
-push(3)
-push(4)
-pop()
-console.log(IsEmpty())
-console.log(IsFull())
-console.log(peek())
-console.log(array);
-console.log(mid())
+function deleteMidElement(){
+    const middle = Math.floor((array.length-1)/2)
+    let stackSize = array.length
+    for(let i=middle;i< stackSize-1;i++){
+        array[i] =array[i+1]
+    }
+    top--
+    array.length =stackSize-1
+}
+
+function reverseString(str){
+    let reversedString = ''
+    for(let i=0;i<str.length;i++){
+        push(str[i])
+    }
+
+    while(!IsEmpty()){
+        reversedString += peek()
+        pop()
+    }
+    return reversedString 
+}
+
+// push(1)
+// push(2)
+// push(3)
+// push(4)
+// push(5)
+// pop()
+// console.log(IsEmpty())
+// console.log(IsFull())
+// console.log(peek())
+// console.log(array);
+// console.log(mid())
+// deleteMidElement()
+// console.log(array)
+console.log(reverseString("hello"))
